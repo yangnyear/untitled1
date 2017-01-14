@@ -12,14 +12,15 @@ public class MylistNode {
     private int lenth;
     private int bagin;
     private  int i,j;
+    private  int no;
     private BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) {
         MylistNode mylistNode=new MylistNode();
         mylistNode.getatter();
-        if (mylistNode.Solution_1(5))
-            System.out.println("5在矩阵中");
+        if (mylistNode.Solution_1())
+            System.out.println("该数在矩阵中");
         else
-            System.out.println("5不在矩阵中");
+            System.out.println("该数不在矩阵中");
     }
     //获得一个行列递增的矩阵
     private void getatter(){
@@ -58,14 +59,26 @@ public class MylistNode {
         return  true;
     }
     //时间浮渣度O(n)，从右上角开始
-    private boolean Solution_1(int a){
+    private boolean Solution_1(){
+        try {
+            System.out.println("输入要判断的数");
+            no= Integer.parseInt(bufferedReader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         int row=0;
         int col=atter[0].length-1;
         int nor=atter.length;
         while(row<nor&&col>=0){
-            if (atter[row][col]>a)
+            if (atter[row][col]>no)
                 col--;
-            else if (atter[row][col]<a)
+            else if (atter[row][col]<no)
                 row++;
             else return true;
         }
