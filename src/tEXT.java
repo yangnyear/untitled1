@@ -1,6 +1,3 @@
-/*
-简单加密
-**/
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +5,7 @@ import java.io.InputStreamReader;
 
 /**
  * Created by 羊荣毅_L on 2017/1/13.
+ * 简单加密
  */
 public class tEXT {
     private int[] a;

@@ -12,6 +12,7 @@ public class AtterLength {
         atterLength.getatter();
 
     }
+    //查看atter.length and atter[0].length
     private void getatter(){
         atter=new int[5][3];
         for (int i=0;i<5;i++){
