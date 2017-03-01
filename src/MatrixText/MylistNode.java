@@ -1,4 +1,4 @@
-import org.jetbrains.annotations.NotNull;
+package MatrixText;
 
 import java.io.BufferedReader;
 import java.io.IOException;
