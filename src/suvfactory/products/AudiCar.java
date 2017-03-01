@@ -1,4 +1,4 @@
-package suvfactory;
+package suvfactory.products;
 
 import java.util.Objects;
 

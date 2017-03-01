@@ -1,4 +1,6 @@
-package suvfactory;
+package suvfactory.products;
+
+import suvfactory.products.AudiCar;
 
 /**
  * Created by 羊荣毅_L on 2017/3/1.
