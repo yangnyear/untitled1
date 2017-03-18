@@ -1,10 +1,12 @@
 package textcode;
 
+import com.sun.xml.internal.bind.v2.model.core.ArrayInfo;
 import com.sun.xml.internal.ws.addressing.v200408.MemberSubmissionWsaClientTube;
 
 import java.util.Scanner;
 
 /**
+ *
  * Created by 羊荣毅_L on 2017/3/7.
  */
 public class Main {
@@ -36,4 +38,5 @@ public class Main {
         }
         System.out.println(safeNo);
     }
+
 }

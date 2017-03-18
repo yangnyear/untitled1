@@ -9,20 +9,29 @@ public class AtterLength {
 //        StringText.AtterLength atterLength=new StringText.AtterLength();
 ////        atterLength.getatter();
 //        atterLength.text();
-
+//
 //        String str1 = "java";
 //        String str2 = "java";
+//        str1.intern();
+//        str2.intern();
 //        System.out.println(str1==str2);
 //        System.out.print(str1.equals(str2));
 
 //        String str1 = new String("java");
 //        String str2 = new String("java");
-//        System.out.print(str1==str2);
+//        str1.intern();
+//        str2.intern();
+//        System.out.println(str1==str2);
+//        System.out.println(str1.equals(str2));
 
-        String str1 = "java";
-        String str2 = "blog";
+        String str1 = new String("java");
+        String str2 = new String("blog");
+        str1.intern();
+        str2.intern();
         String s = str1+str2;
-        System.out.print(s=="javablog");
+//        s.intern();
+        System.out.println(s=="javablog");
+        System.out.print("javablog".equals(s));
 
     }
     //查看atter.length and atter[0].length
@@ -42,6 +51,7 @@ public class AtterLength {
     private void text(){
         String str1 = "java";
         String str2 = "java";
-        System.out.print(str1==str2);
+        System.out.println(str1==str2);
+        System.out.println(str1.equals(str2));
     }
 }
