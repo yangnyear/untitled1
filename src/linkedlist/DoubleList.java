@@ -1,6 +1,8 @@
 package linkedlist;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.ListIterator;
 
 /**
  * Created by 羊荣毅_L on 2017/3/18.
@@ -16,6 +18,7 @@ public class DoubleList {
         cyclink.show();
         cyclink.play();
     }
+
 }
 
 class Child {
