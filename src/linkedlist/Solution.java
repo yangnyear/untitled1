@@ -51,7 +51,7 @@ public class Solution {
         node.next = next;
         size++;
     }
-
+//方法一,不完善
     public ListNode deleteDuplication(ListNode pHead) {
         pHead = root;
         ListNode p = root;
@@ -72,6 +72,7 @@ public class Solution {
         }
         return pHead;
     }
+    //方法二
     public ListNode get(ListNode pHead){
         if (pHead == null) return null;
         ListNode p = pHead;
@@ -116,7 +117,6 @@ public class Solution {
           ListNode returnroot=list.deleteDuplication(new ListNode(0));
         System.out.println("根节点是:");
         System.out.println(returnroot.val);
-        System.out.println("1 2 5");
         list.printAll();
     }
 
