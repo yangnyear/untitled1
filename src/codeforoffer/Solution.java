@@ -1,6 +1,7 @@
 package codeforoffer;
 
 import hair.RightHair;
+import sun.reflect.generics.tree.Tree;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
@@ -46,23 +47,46 @@ public class Solution {
         }
     }
 
+    public void insert(int val) {
+        TreeNode node = new TreeNode(val);
+        if (root == null) {
+            root = node;
+        } else {
+            TreeNode treeNode = root;
+            TreeNode father = null;
+            while (treeNode != null) {
+                if (treeNode.right != null && treeNode.left != null) {
+                    father = treeNode;
+                    treeNode = treeNode.right;
+                } else if (treeNode.right == null || treeNode.left == null) {
+                    return;
+                }
+            }
+            if (father.right==null){
+                father.right=node;
+            }else father.left=node;
+        }
+    }
+
     public void printAll(TreeNode root) {
         if (root != null) {
-            System.out.print(root.val+" ");
+            System.out.print(root.val + " ");
             printAll(root.left);
             printAll(root.right);
         }
     }
+
     //  输入一棵二叉树，判断是否为平衡二叉树
     public boolean IsBalanced_Solution(TreeNode root) {
         if (root == null) return true;
         int rightHeight = TreeDepth(root.right);
         int leftHeight = TreeDepth(root.left);
-        if (Math.abs(rightHeight-leftHeight)<=1)
+        if (Math.abs(rightHeight - leftHeight) <= 1)
             return true;
         return false;
     }
-  //  输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度
+
+    //  输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度
     public int TreeDepth(TreeNode root) {
         if (root == null) return 0;
         int rightHeight = TreeDepth(root.right);
@@ -73,8 +97,8 @@ public class Solution {
     public static void main(String[] args) {
         Solution tree = new Solution();
         for (int i = 0; i < 15; i++) {
-            TreeNode node = new TreeNode(i + 1);
-            tree.insert(node);
+//            TreeNode node = new TreeNode(i + 1);
+            tree.insert(i);
         }
 //        tree.insert(new TreeNode(7));
 //        tree.insert(new TreeNode(2));
