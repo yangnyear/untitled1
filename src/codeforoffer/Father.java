@@ -11,10 +11,11 @@ import java.util.Stack;
 public class Father {//提交记得把类名改为Main
     private ListNode root;
     private int size;
-/**
- * 链表
- * */
-   public class ListNode {
+
+    /**
+     * 链表
+     */
+    public class ListNode {
         int val;
         ListNode next = null;
 
@@ -46,8 +47,10 @@ public class Father {//提交记得把类名改为Main
         node.next = next;
         size++;
     }
-/**
- * 树*/
+
+    /**
+     * 树
+     */
     public class TreeNode {
         int val = 0;
         TreeNode left = null;
@@ -57,8 +60,9 @@ public class Father {//提交记得把类名改为Main
             this.val = val;
         }
     }
-    public  int checkTreeNode(TreeNode root){
-        int val=root.val;
+
+    public int checkTreeNode(TreeNode root) {
+        int val = root.val;
         checkTreeNode(root.right);
         checkTreeNode(root.left);
         return val;
@@ -115,8 +119,31 @@ public class Father {//提交记得把类名改为Main
      * 保证深度不超过树的高度，树上结点的值为非负整数且不超过100000。
      */
     public ListNode getTreeLevel(TreeNode root, int dep) {
-        // TODO: 2017/3/23  
-        TreeNode p=root;
-        while ()
+
+        if (root == null && dep <= 0) {
+            return null;
+        }
+        ListNode rootLs = new ListNode(root.val);
+        if (dep == 1) {
+            return rootLs;
+        }
+        ListNode p = rootLs;
+        if (root.left != null) {
+            ListNode left = getTreeLevel(root.left, dep - 1);
+            p.next = left;
+            while (p.next != null) {
+                p = p.next;
+            }
+        }
+        if (root.right != null) {
+            ListNode right = getTreeLevel(root.right, dep - 1);
+            p.next = right;
+            while (p.next != null) {
+                p = p.next;
+            }
+        }
+
+        return rootLs.next;
+
     }
 }

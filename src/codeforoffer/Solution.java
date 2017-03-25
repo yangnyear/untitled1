@@ -23,6 +23,15 @@ public class Solution {
         }
     }
 
+    public class ListNode {
+        int val;
+        ListNode next = null;
+
+        ListNode(int val) {
+            this.val = val;
+        }
+    }
+
     private TreeNode root;
 
     public void insert(TreeNode node) {
@@ -62,9 +71,9 @@ public class Solution {
                     return;
                 }
             }
-            if (father.right==null){
-                father.right=node;
-            }else father.left=node;
+            if (father.right == null) {
+                father.right = node;
+            } else father.left = node;
         }
     }
 
@@ -94,24 +103,72 @@ public class Solution {
         return rightHeight > leftHeight ? rightHeight + 1 : leftHeight + 1;
     }
 
+    public ListNode getTreeLevel(TreeNode root, int dep) {
+
+        if (root == null && dep <= 0) {
+            return null;
+        }
+        ListNode rootLs = new ListNode(root.val);
+        if (dep == 1) {
+            return rootLs;
+        }
+        ListNode p = rootLs;
+        if (root.left != null) {
+            ListNode left = getTreeLevel(root.left, dep - 1);
+            p.next = left;
+            while (p.next != null) {
+                p = p.next;
+            }
+
+        }
+        if (root.right != null) {
+            ListNode right = getTreeLevel(root.right, dep - 1);
+            p.next = right;
+            while (p.next != null) {
+                p = p.next;
+            }
+        }
+        if (dep>1){
+            System.out.println(rootLs.val);
+        }else
+            System.out.println(rootLs.next.val);
+        return rootLs.next;
+
+    }
+
     public static void main(String[] args) {
         Solution tree = new Solution();
-        for (int i = 0; i < 15; i++) {
-//            TreeNode node = new TreeNode(i + 1);
-            tree.insert(i);
-        }
-//        tree.insert(new TreeNode(7));
-//        tree.insert(new TreeNode(2));
-//        tree.insert(new TreeNode(3));
-//        tree.insert(new TreeNode(5));
-//        tree.insert(new TreeNode(8));
-//        tree.insert(new TreeNode(77));
-//        tree.insert(new TreeNode(10));
+//        for (int i = 0; i < 15; i++) {
+////            TreeNode node = new TreeNode(i + 1);
+//            tree.insert(i);
+//        }
+        tree.insert(new TreeNode(7));
+        tree.insert(new TreeNode(2));
+        tree.insert(new TreeNode(3));
+        tree.insert(new TreeNode(5));
+        tree.insert(new TreeNode(8));
+        tree.insert(new TreeNode(77));
+        tree.insert(new TreeNode(10));
+        tree.insert(new TreeNode(14));
+        tree.insert(new TreeNode(24));
+        tree.insert(new TreeNode(34));
+        tree.insert(new TreeNode(54));
+        tree.insert(new TreeNode(27));
+        tree.insert(new TreeNode(45));
+        tree.insert(new TreeNode(74));
+        tree.insert(new TreeNode(64));
+        tree.insert(new TreeNode(52));
+        tree.insert(new TreeNode(38));
+        tree.insert(new TreeNode(97));
+        tree.insert(new TreeNode(35));
+        tree.insert(new TreeNode(40));
         tree.printAll(tree.root);
         System.out.println();
         System.out.println("***************************************");
         System.out.println(tree.TreeDepth(tree.root));
         System.out.println("***************************************");
         System.out.print(tree.IsBalanced_Solution(tree.root));
+        System.out.println("***************************************");
+        tree.getTreeLevel(tree.root,4);
     }
 }
